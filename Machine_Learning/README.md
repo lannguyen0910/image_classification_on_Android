@@ -18,6 +18,6 @@ python tflow.py
 python tensorflow_lite.py
 ```
 
-## Source
+## Sources
 - https://github.com/aladdinpersson/HelloMnist/blob/main/TensorFlowCode/main.py
 - https://www.tensorflow.org/
