@@ -13,7 +13,10 @@ Android: Consists 2 part
 ## Result
 ![result](result/draw.gif)
 
+![result](result/image.PNG)
+![result](result/image2.PNG)
 
 ## Sources
 - Inspire from [AladdinPersson](https://github.com/aladdinpersson/HelloMnist)
-- Draw: https://github.com/nex3z/tflite-mnist-android
+- Draw: [nex3z](https://github.com/nex3z/tflite-mnist-android)
+- PreprocessImage: [vasugargofficial](https://github.com/vasugargofficial/Image-Classification-Mobilenet-AndroidDemo/blob/master/app/src/main/java/com/example/imageclassificationdemo/MainActivity.java)
