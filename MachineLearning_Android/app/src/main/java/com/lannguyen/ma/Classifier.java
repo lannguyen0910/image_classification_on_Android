@@ -46,10 +46,10 @@ public class Classifier {
         int[] pixels = new int[ModelConfig.INPUT_IMG_SIZE_WIDTH * ModelConfig.INPUT_IMG_SIZE_HEIGHT];
         bitmap.getPixels(pixels, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
         for (int pixel : pixels) {  // Convert Pixel
-            float rChannel = (pixel >> 16) & 0xFF;
-            float gChannel = (pixel >> 8) & 0xFF;
-            float bChannel = (pixel) & 0xFF;
-            float pixelValue = (rChannel + gChannel + bChannel) / 3 / 255.f;
+            /**
+             * https://github.com/nex3z/tflite-mnist-android/blob/master/android/app/src/main/java/com/nex3z/tflite/mnist/classifier/Classifier.kt
+             **/
+            float pixelValue = ((float)255 - ((float)(pixel >> 16 & 255) * 0.299F + (float)(pixel >> 8 & 255) * 0.587F + (float)(pixel & 255) * 0.114F)) / 255.0F;
             byteBuffer.putFloat(pixelValue);
         }
         return byteBuffer;

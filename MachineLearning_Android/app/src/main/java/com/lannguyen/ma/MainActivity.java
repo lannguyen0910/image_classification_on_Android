@@ -60,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 Bitmap bitmap = fingerPaintView.exportToBitmap(ModelConfig.INPUT_IMG_SIZE_WIDTH, ModelConfig.INPUT_IMG_SIZE_HEIGHT);
                 List<Recognition> recognitions = mnistClassifier.recognizeImage(bitmap);
-                numberPredict.setText(recognitions.toString());
+                Recognition value = recognitions.get(0);
+                numberPredict.setText(value.toString());
             }
         });
 
