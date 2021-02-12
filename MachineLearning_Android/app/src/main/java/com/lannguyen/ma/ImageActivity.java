@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ImageActivity extends AppCompatActivity {
     private static final String TAG = "ImageActivity";
@@ -52,7 +53,9 @@ public class ImageActivity extends AppCompatActivity {
 
     private void init() {
         initClassifier();
-        initView();
+        openImage();
+        predict();
+        clear();
     }
 
     private void initClassifier() {
@@ -64,7 +67,7 @@ public class ImageActivity extends AppCompatActivity {
         }
     }
 
-    private void initView(){
+    private void openImage(){
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +75,28 @@ public class ImageActivity extends AppCompatActivity {
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(intent,"Select Picture"),12);
+            }
+        });
+    }
+
+    private void predict(){
+        btnClassify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bitmap preprocessedImage = ImageUtils.prepareImageForClassification(bitmap);
+                List<Recognition> recognitions = mnistClassifier.recognizeImage(preprocessedImage);
+                Recognition value = recognitions.get(0);
+                numberPredict.setText(value.toString());
+            }
+        });
+    }
+
+    private void clear(){
+        btnClear.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                image.setImageResource(0);
+                numberPredict.setText(R.string.empty);
             }
         });
     }
