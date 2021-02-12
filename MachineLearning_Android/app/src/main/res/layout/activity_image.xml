@@ -36,31 +36,66 @@
         android:id="@+id/image">
     </ImageView>
 
-    <Button
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/classify"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/image"
-        android:layout_margin="30dp"
-        android:text="Classify"
-        android:background="#fff"
-        android:textColor="#fff">
-    </Button>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/image">
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="68dp"
-        android:background="@drawable/rounded_button"
-        android:src="@drawable/clear2">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:id="@+id/predict"
+            android:layout_centerHorizontal="true">
 
-    </ImageButton>
+            <TextView
+                style="@style/ResultText"
+                android:text="@string/predict"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/ResultText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/predict"
+            android:id="@+id/number_predict"
+            android:text="@string/empty"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:textSize="50sp"
+            android:textColor="@color/black"/>
+
+        <ImageButton
+            android:id="@+id/clear_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="68dp"
+            android:background="@drawable/rounded_button"
+            android:src="@drawable/clear2">
+
+        </ImageButton>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/classify"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/number_predict"
+            android:layout_margin="30dp"
+            android:text="Classify"
+            android:background="#fff"
+            android:textColor="#fff">
+        </Button>
+    </RelativeLayout>
 
     <include layout="@layout/layout_bottom_navigation_view"/>
 </RelativeLayout>
