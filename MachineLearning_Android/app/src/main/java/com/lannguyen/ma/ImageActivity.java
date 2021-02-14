@@ -95,7 +95,7 @@ public class ImageActivity extends AppCompatActivity {
         btnClear.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                image.setImageResource(0);
+                image.setImageResource(android.R.color.white);
                 numberPredict.setText(R.string.empty);
             }
         });

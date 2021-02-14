@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Image_Classification_Android</string>
+    <string name="app_name">Hello MNIST</string>
     <string name="draw_digit">Draw Digit in the box</string>
     <string name="predict">Current Prediction</string>
 
